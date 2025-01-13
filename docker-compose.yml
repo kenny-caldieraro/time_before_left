@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        image: time_before_left
+        stdin_open: true
+        tty: true
+        expose:
+            - 3000
+        labels:
+            - traefik.http.routers.time_before_left.rule=Host(`timebeforleft.useless-therefore-essential.fr`)
+            - traefik.http.routers.time_before_left.tls=true
+            - traefik.http.routers.time_before_left.tls.certresolver=lets-encrypt
+            - traefik.port=80
+        networks:
+            - time_before_left
+            - web
+
+networks:
+    time_before_left:
+        name: time_before_left
+
+    web:
+        external: true

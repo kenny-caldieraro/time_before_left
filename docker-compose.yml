@@ -11,7 +11,7 @@ services:
         expose:
             - 3000
         labels:
-            - traefik.http.routers.time_before_left.rule=Host(`timebeforleft.useless-therefore-essential.fr`)
+            - traefik.http.routers.time_before_left.rule=Host(`timebeforeleft.useless-therefore-essential.fr`)
             - traefik.http.routers.time_before_left.tls=true
             - traefik.http.routers.time_before_left.tls.certresolver=lets-encrypt
             - traefik.port=80
